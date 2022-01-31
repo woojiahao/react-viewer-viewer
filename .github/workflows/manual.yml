@@ -21,7 +21,7 @@ jobs:
     - name: Check env context
       env:
         ENV_CONTEXT1: ${{ toJson(env) }}
-        run: write-host "$env:ENV_CONTEXT1"
+      run: write-host "$env:ENV_CONTEXT1"
     - name: Get user profile
       run: |
         echo "USER_PROFILE: $USER_PROFILE"

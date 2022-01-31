@@ -9,5 +9,19 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Access user profile
-      run: echo "User profile is $env:USERPROFILE" && env
+    - name: Dump env var
+      env:
+        ENV_CONTEXT: ${{ toJson(env) }}
+    - name: Set user profile
+      shell: cmd
+      run: |
+        echo %userprofile%
+        echo ::set name=UserProfilePath::%userprofile%
+    - name: Check env context
+      env:
+        ENV_CONTEXT1: ${{ toJson(env) }}
+        run: write-host "$env:ENV_CONTEXT1"
+    - name: Get user profile
+      run: echo "USER_PROFILE: $USER_PROFILE"
+      env:
+        USER_PROFILE: ${{ **env.UserProfilePath** }}

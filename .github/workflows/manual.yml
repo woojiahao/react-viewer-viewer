@@ -1,0 +1,13 @@
+name: "compile"
+on: workflow_dispatch
+
+jobs:
+  publish-tauri:
+    strategy:
+      fail-fast: false
+
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Access user profile
+      run: echo ${{ env.USERPROFILE }}

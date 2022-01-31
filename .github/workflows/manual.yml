@@ -1,4 +1,4 @@
-name: "compile"
+name: "manual"
 on: workflow_dispatch
 
 jobs:

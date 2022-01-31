@@ -12,6 +12,7 @@ jobs:
     - name: Dump env var
       env:
         ENV_CONTEXT: ${{ toJson(env) }}
+      run: write-host "$env:ENV_CONTEXT"
     - name: Set user profile
       shell: cmd
       run: |
